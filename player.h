@@ -1,5 +1,5 @@
 // TP5/EX1/player.h
-// exercice 1 : BasketTeamAGAIN
+// exercice 1 : BasketTeamAgain
 // BODIN Maxime C2
 // 22/03/15
 
@@ -7,20 +7,27 @@
 #define PLAYER_H
 
 #include <string>
+#include <iostream>
+#include <fstream>
+
+
+using std::string, std::ostream, std::cout;
 
 class Player
 {
-    friend std::ostream& operator<<(std::ostream& ostr, const Player& player);
-protected:
-    std::string itsName;
+
+    protected:
+    string itsName;
     int itsPlayTime;
     int itsPoints;
 
-public:
-    Player(std::string name);
-    const std::string &getItsName() const;
+    public:
+    Player(string name);
+    const string &getItsName() const;
     void addStatistics(int points, int playTime);
     void display();
+
+    friend ostream& operator<<(ostream& ostr, const Player* player);
 
 };
 

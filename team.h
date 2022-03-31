@@ -1,5 +1,5 @@
 // TP5/EX1/team.h
-// exercice 1 : BasketTeamAGAIN
+// exercice 1 : BasketTeamAgain
 // BODIN Maxime C2
 // 22/03/15
 
@@ -9,7 +9,7 @@
 #include "player.h"
 #include <map>
 
-using std::map;
+using std::map, std::ofstream;
 
 enum Position
 {
@@ -23,16 +23,20 @@ enum Position
 class Team
 {
 private:
-    std::string itsTeamName;
+    string itsTeamName;
     map <Position, Player *> *itsPlayers;
 
 public:
-    Team(std::string teamName);
+    Team(string teamName);
     ~Team();
 
     void addPlayer(Position position, Player* player);
-    void addStatistics(std::string name, int points, int playTime);
+    void addStatistics(string name, int points, int playTime);
     void display();
+
+    friend ostream& operator<<(ostream& ostr, const Position pos);
+
+    bool save();
 };
 
 #endif // TEAM_H

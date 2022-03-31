@@ -1,16 +1,16 @@
 // TP5/EX1/player.cpp
-// exercice 1 : BasketTeamAGAIN
+// exercice 1 : BasketTeamAgain
 // BODIN Maxime C2
 // 22/03/15
 
 #include "player.h"
 
 
-Player::Player(std::string name) : itsName(name)
+Player::Player(string name) : itsName(name)
 {}
 
 
-const std::string &Player::getItsName() const
+const string &Player::getItsName() const
 {return itsName;}
 
 
@@ -19,12 +19,12 @@ void Player::addStatistics(int points, int playTime)
 
 
 void Player::display()
+{cout << this;}
+
+
+ostream& operator<<(ostream& ostr, const Player* player)
 {
-
-}
-
-
-std::ostream& operator<<(std::ostream& ostr, const Player& player)
-{
-    return ostr << player.itsName << ':' << player.itsPoints << '/' << player.itsPlayTime << '\n';
+    return ostr << player->itsName << ':'
+                << player->itsPoints << '/'
+                << player->itsPlayTime << '\n';
 }
